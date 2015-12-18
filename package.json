@@ -1,0 +1,28 @@
+{
+  "name": "chronograph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "assets": "scripts/assets.sh",
+    "prepublish": "npm run build && npm run assets",
+    "build": "browserify -t [ babelify --presets [ react ] ] src/main.js -o index.js",
+    "prerun": "npm run build && npm run assets",
+    "run": "watchify -t [ babelify --presets [ react ] ] src/main.js -o index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "material-ui": "^0.14.0-rc2",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-tap-event-plugin": "^0.2.1"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
+  }
+}
